@@ -14,7 +14,7 @@
             flex-direction: column;
         }
         #title {
-            background-color: #28a745;
+            background-color: #343a40;
             color: white;
             padding: 15px 0;
             width: 100%;
@@ -23,6 +23,32 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
             z-index: 10;
             flex-shrink: 0;
+        }
+        .button-bar {
+            background-color: #343a40;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: flex-start;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            flex-shrink: 0;
+        }
+        #show-images, #show-video {
+            padding: 8px 18px; /* Slightly adjusted padding for the new style */
+            font-size: 14px; /* Slightly smaller font for a cleaner look */
+            font-weight: bold;
+            color: #f8f9fa;
+            background-color: transparent;
+            border: 2px solid #f8f9fa;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        #show-video {
+            margin-left: 10px;
+        }
+        #show-images:hover, #show-video:hover {
+            background-color: #f8f9fa;
+            color: #343a40;
         }
         #map-container {
             width: 100%;
@@ -34,25 +60,6 @@
             width: 100%;
             height: 100%;
             border: 0;
-        }
-        #show-images {
-            margin: 20px auto 20px 20px;
-            align-self: flex-start;
-            padding: 15px 30px;
-            font-size: 18px;
-            font-weight: bold;
-            color: white;
-            background-color: #d9534f;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-            flex-shrink: 0;
-        }
-        #show-images:hover {
-            background-color: #c9302c;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
         }
 
         /* Modal styles */
@@ -106,6 +113,20 @@
             text-decoration: none;
         }
 
+        /* Video Modal Content */
+        #video-container {
+            width: 90%;
+            max-width: 900px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #video-player {
+            width: 100%;
+            max-height: 80vh;
+            border-radius: 5px;
+        }
+
         /* Single Image View */
         #single-image-view {
             display: none; /* Hidden by default */
@@ -134,7 +155,7 @@
         }
 
         /* Improved "Volver al Mapa" button */
-        #back-to-map-btn {
+        .back-to-map-btn {
             padding: 12px 25px;
             font-size: 16px;
             font-weight: bold;
@@ -146,7 +167,7 @@
             transition: all 0.3s ease;
             margin-top: 20px;
         }
-        #back-to-map-btn:hover {
+        .back-to-map-btn:hover {
             background-color: #333;
             border-color: #f8f9fa;
         }
@@ -157,7 +178,7 @@
                 font-size: 1.2em;
                 padding: 10px 0;
             }
-            #show-images {
+            #show-images, #show-video {
                 margin: 15px auto;
                 align-self: center;
                 padding: 12px 25px;
@@ -170,7 +191,7 @@
             #modal-images-container img {
                 height: 120px;
             }
-            #back-to-map-btn {
+            .back-to-map-btn {
                 font-size: 14px;
                 padding: 10px 20px;
             }
@@ -191,16 +212,19 @@
 <body>
 
     <div id="title">Temporada de Incendios Forestales 2025-2026</div>
+    <div class="button-bar">
+        <button id="show-images">Incendios 26/11/2025</button>
+        <button id="show-video">Incendios 27/11/2025</button>
+    </div>
 
     <div id="map-container">
         <iframe src="https://www.google.com/maps/d/embed?mid=1O9I3XXMJW_iPBP6LUd85RoYDOM5swTw&ehbc=2E312F&noprof=1" loading="lazy"></iframe>
     </div>
 
-    <button id="show-images">Incendios 26/11/2025</button>
 
-    <!-- The Modal -->
+    <!-- The Image Modal -->
     <div id="myModal" class="modal">
-      <span class="close">&times;</span>
+      <span class="close image-close">&times;</span>
       
       <!-- Container for Image Grid -->
       <div class="modal-content" id="modal-images-container"></div>
@@ -211,15 +235,28 @@
         <button id="back-to-grid-btn">Volver a la galería</button>
       </div>
 
-      <button id="back-to-map-btn">Volver al Mapa</button>
+      <button id="back-to-map-btn" class="back-to-map-btn">Volver al Mapa</button>
+    </div>
+
+    <!-- The Video Modal -->
+    <div id="videoModal" class="modal">
+      <span class="close video-close">&times;</span>
+      <div id="video-container">
+        <video id="video-player" controls>
+            <source src="videos/Fire_nqn_27_11_09_30_am.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+      </div>
+      <button id="video-back-to-map-btn" class="back-to-map-btn">Volver al Mapa</button>
     </div>
 
     <script>
-        const modal = document.getElementById('myModal');
-        const btn = document.getElementById('show-images');
-        const span = document.getElementsByClassName('close')[0];
+        // --- Image Modal Logic ---
+        const imageModal = document.getElementById('myModal');
+        const showImagesBtn = document.getElementById('show-images');
+        const closeImageSpan = imageModal.querySelector('.close');
         const modalImagesContainer = document.getElementById('modal-images-container');
-        const backToMapBtn = document.getElementById('back-to-map-btn');
+        const backToMapImageBtn = document.getElementById('back-to-map-btn');
 
         const singleImageView = document.getElementById('single-image-view');
         const singleImage = document.getElementById('single-image');
@@ -240,47 +277,73 @@
         function showGridView() {
             singleImageView.style.display = 'none';
             modalImagesContainer.style.display = 'grid';
-            backToMapBtn.style.display = 'block'; // Show main back button
+            backToMapImageBtn.style.display = 'block'; // Show main back button
         }
 
         function showSingleImageView(src) {
             modalImagesContainer.style.display = 'none';
             singleImage.src = src;
             singleImageView.style.display = 'flex';
-            backToMapBtn.style.display = 'none'; // Hide main back button
+            backToMapImageBtn.style.display = 'none'; // Hide main back button
         }
 
-        btn.onclick = function() {
+        showImagesBtn.onclick = function() {
             modalImagesContainer.innerHTML = ''; // Clear previous images
             images.forEach(src => {
                 const img = document.createElement('img');
                 img.src = src;
+                img.alt = src; // Add alt text for accessibility
                 img.onclick = () => {
                     showSingleImageView(src);
                 }
                 modalImagesContainer.appendChild(img);
             });
             showGridView();
-            modal.style.display = "flex";
+            imageModal.style.display = "flex";
         }
 
-        span.onclick = function() {
-            modal.style.display = "none";
+        closeImageSpan.onclick = function() {
+            imageModal.style.display = "none";
         }
 
-        backToMapBtn.onclick = function() {
-            modal.style.display = "none";
+        backToMapImageBtn.onclick = function() {
+            imageModal.style.display = "none";
         }
 
         backToGridBtn.onclick = function() {
             showGridView();
         }
 
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
+        // --- Video Modal Logic ---
+        const videoModal = document.getElementById('videoModal');
+        const showVideoButton = document.getElementById('show-video');
+        const closeVideoSpan = videoModal.querySelector('.close');
+        const videoPlayer = document.getElementById('video-player');
+        const videoBackToMapBtn = document.getElementById('video-back-to-map-btn');
+
+        showVideoButton.onclick = function() {
+            videoModal.style.display = "flex";
+            videoPlayer.play();
         }
+
+        function closeVideoModal() {
+            videoModal.style.display = "none";
+            videoPlayer.pause();
+            videoPlayer.currentTime = 0; // Reset video to start
+        }
+
+        closeVideoSpan.onclick = closeVideoModal;
+        videoBackToMapBtn.onclick = closeVideoModal;
+
+        // --- General Modal Closing Logic ---
+        window.addEventListener('click', function(event) {
+            if (event.target == imageModal) {
+                imageModal.style.display = "none";
+            }
+            if (event.target == videoModal) {
+                closeVideoModal();
+            }
+        });
     </script>
 </body>
 </html>
