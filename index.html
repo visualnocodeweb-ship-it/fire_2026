@@ -13,6 +13,41 @@
             display: flex;
             flex-direction: column;
         }
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* More transparent background */
+            z-index: 200;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 1; /* Ensure it starts visible */
+            transition: opacity 0.5s ease-out; /* For potential future fade-out on close, if desired */
+        }
+        #splash-screen img {
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .close-splash {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .close-splash:hover,
+        .close-splash:focus {
+            color: #bbb;
+            text-decoration: none;
+        }
         #title {
             background-color: #343a40;
             color: white;
@@ -94,7 +129,7 @@
         .modal-content img:hover {
             transform: scale(1.05);
         }
-        .close {
+        .close { /* Generic close button style for modals */
             position: absolute;
             top: 15px;
             right: 35px;
@@ -195,12 +230,18 @@
 </head>
 <body>
 
+    <div id="splash-screen">
+        <span class="close-splash">&times;</span>
+        <img src="Imagenes_26_11_2025/Reporte 28_11_25 12_00 hs.png" alt="Reporte de último momento">
+    </div>
+
     <div id="title">Temporada de Incendios Forestales 2025-2026</div>
     <div class="button-bar">
         <button id="show-images">Incendios 26/11/2025</button>
         <button id="show-video">Incendios 27/11/2025</button>
         <button id="show-images-28-11">Imagenes 28/11/2025</button>
         <button id="show-videos-28-11">Viento 28/11 (video)</button>
+        <button id="show-reporte-1200">Reporte 12:00 hs</button>
     </div>
 
     <div id="map-container">
@@ -266,6 +307,17 @@
       <button class="back-to-map-btn">Volver al Mapa</button>
     </div>
 
+    <!-- The Image Modal (Reporte 12:00 hs) -->
+    <div id="modal-reporte-1200" class="modal">
+      <span class="close">&times;</span>
+      <div class="modal-content"></div>
+      <div class="single-image-view">
+        <img class="single-image" src="" alt="Imagen ampliada">
+        <button class="back-to-grid-btn">Volver a la galería</button>
+      </div>
+      <button class="back-to-map-btn">Volver al Mapa</button>
+    </div>
+
     <script>
         // --- Generic Image Modal Logic ---
         function setupImageModal(modalId, buttonId, imageArray, folder) {
@@ -277,7 +329,7 @@
 
             const singleImageView = modal.querySelector('.single-image-view');
             const singleImage = modal.querySelector('.single-image');
-            const backToGridBtn = modal.querySelector('.back-to-grid-btn');
+            const backToGridBtn = modal.querySelector('.back-to-grid-btn'); // Corrected querySelector
             
             const fullImagePaths = imageArray.map(img => `${folder}/${img}`);
 
@@ -358,8 +410,32 @@
         ];
         setupImageModal('modal-28-11', 'show-images-28-11', images_28_11, 'fire_28_11');
 
+        const reporte_1200_image = ['Reporte 28_11_25 12_00 hs.png'];
+        setupImageModal('modal-reporte-1200', 'show-reporte-1200', reporte_1200_image, 'Imagenes_26_11_2025');
+
+
         setupVideoModal('videoModal', 'show-video');
         setupVideoModal('videoModal-28-11', 'show-videos-28-11');
+
+        // --- Splash Screen Logic ---
+        window.addEventListener('load', (event) => { // Changed to 'load'
+            const splash = document.getElementById('splash-screen');
+            const closeSplashBtn = splash.querySelector('.close-splash');
+
+            closeSplashBtn.onclick = function(e) {
+                e.stopPropagation(); // Prevent event from bubbling up to splash background
+                splash.style.opacity = '0';
+                setTimeout(() => {
+                    splash.style.display = 'none';
+                    document.body.style.overflow = ''; // Re-enable scrolling on body
+                }, 500); // Wait for transition
+            };
+
+            // Ensure splash screen is visible initially
+            splash.style.display = 'flex';
+            splash.style.opacity = '1';
+            document.body.style.overflow = 'hidden'; // Disable scrolling on body
+        });
 
         // --- General Modal Closing Logic ---
         window.addEventListener('click', function(event) {
