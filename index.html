@@ -29,123 +29,189 @@
             </ul>
         </div>
         <button id="show-map-and-images-07-12" class="btn btn-secondary">Incendios 07/12/2025</button>
-        <button id="show-map-and-images-08-12" class="btn btn-danger">Incendios 08/12/2025</button>
-    </div>
+                <button id="show-map-and-images-08-12" class="btn btn-secondary">Incendios 08/12/2025</button>
+                <button id="show-images-09-12" class="btn btn-danger">Incendios 09/12/2025</button>
+            </div>
+        
+            <div id="map-container">
+                <iframe src="https://www.google.com/maps/d/embed?mid=1O9I3XXMJW_iPBP6LUd85RoYDOM5swTw&ehbc=2E312F&noprof=1" loading="lazy"></iframe>
+            </div>
+        
+        
+            <!-- The Image Modal (26/11) -->
+            <div id="myModal" class="modal">
+              <span class="close">&times;</span>
+              <div class="image-gallery"></div>
+              <div class="single-image-view">
+                <img class="single-image" src="" alt="Imagen ampliada">
+                <button class="back-to-grid-btn">Volver a la galería</button>
+              </div>
+              <button class="back-to-map-btn">Volver al Mapa</button>
+            </div>
+        
+            <!-- The Video Modal (27/11) -->
+            <div id="videoModal" class="modal">
+              <span class="close">&times;</span>
+              <div class="video-container">
+                <div class="video-wrapper">
+                    <video controls>
+                        <source src="static/videos/Fire_nqn_27_11_09_30_am.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+              </div>
+              <button class="back-to-map-btn">Volver al Mapa</button>
+            </div>
+        
+            <!-- The Image Modal (28/11) -->
+            <div id="modal-28-11" class="modal">
+              <span class="close">&times;</span>
+              <div class="image-gallery"></div>
+              <div class="single-image-view">
+                <img class="single-image" src="" alt="Imagen ampliada">
+                <button class="back-to-grid-btn">Volver a la galería</button>
+              </div>
+              <button class="back-to-map-btn">Volver al Mapa</button>
+            </div>
+        
+            <!-- The Video Modal (28/11) -->
+            <div id="videoModal-28-11" class="modal">
+              <span class="close">&times;</span>
+              <div class.video-container">
+                <div class="video-wrapper">
+                  <p>ver video viento</p>
+                  <video controls>
+                    <source src="static/videos/Grabación de pantalla 2025-11-28 093514.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div class="video-wrapper">
+                  <p>ver video viento</p>
+                  <video controls>
+                    <source src="static/videos/Grabación de pantalla 2-11-28 093558.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+              <button class="back-to-map-btn">Volver al Mapa</button>
+            </div>
+        
+            <!-- The Image Modal (Reporte 12:00 hs) -->
+            <div id="modal-reporte-1200" class="modal">
+              <span class="close">&times;</span>
+              <div class="image-gallery"></div>
+              <div class="single-image-view">
+                <img class="single-image" src="" alt="Imagen ampliada">
+                <button class="back-to-grid-btn">Volver a la galería</button>
+              </div>
+              <button class="back-to-map-btn">Volver al Mapa</button>
+            </div>
+        
+            <!-- The Image and Map Modal (07/12) -->
+            <div id="modal-07-12" class="modal">
+              <span class="close">&times;</span>
+              <div class="modal-titles">
+                <h2>Incendio Forestal Frente Aeropuerto Chapelco - SMA</h2>
+                <h4>07/12/2025</h4>
+                <h4>Vegetación afectada: Arbustos, pastizales y coirones.</h4>
+              </div>
+              <div class="image-gallery"></div>
+              <div class="single-image-view">
+                <img class="single-image" src="" alt="Imagen ampliada">
+                <button class="back-to-grid-btn">Volver a la galería</button>
+              </div>
+              <div id="map-container-07-12" class="map-container-modal">
+                <iframe src="https://www.google.com/maps/d/embed?mid=1iG_oOaW4zHAyE1IIhZgoOX505jPvh4U&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
+              </div>
+              <button class="back-to-map-btn">Cerrar</button>
+            </div>
+        
+            <!-- The Image and Map Modal (08/12) -->
+            <div id="modal-08-12" class="modal">
+              <span class="close">&times;</span>
+              <div class="modal-titles">
+                <h2>Columna de Humo Departameno Huiliches</h2>
+                <h4>08/12/2025</h4>
+                <h4>Jurisdiccion Provincia.</h4>
+                <h4>Tormenta Eléctrica.</h4>
+              </div>
+              <div class="image-gallery"></div>
+              <div class="single-image-view">
+                <img class="single-image" src="" alt="Imagen ampliada">
+                <button class="back-to-grid-btn">Volver a la galería</button>
+              </div>
+              <div id="map-container-08-12" class="map-container-modal">
+                <iframe src="https://www.google.com/maps/d/embed?mid=1ctKbLOYLyjo0lCkaeTEWuFCgLjuzZBQ&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
+              </div>
+              <button class="back-to-map-btn">Cerrar</button>
+            </div>
+        
+            <!-- The Text and Image Modal (09/12) -->
+            <div id="modal-09-12" class="modal">
+                <span class="close">&times;</span>
+                <div class="modal-content-text text-white">
+                    <h3>Parte de Incendios 09/12/2025</h3>
+                    <p>El Parque Nacional Lanín informa sobre varios focos de incendio originados por las descargas eléctricas registradas ayer y hoy en la zona sur del área protegida.</p>
+                    
+                    <h4>R20 Las Taguas</h4>
+                    <ul>
+                        <li><strong>Estado:</strong> Extinguido</li>
+                        <li><strong>Origen:</strong> Rayo</li>
+                        <li><strong>Superficie estimada:</strong> 100 m² (10 x 10)</li>
+                        <li><strong>Altitud:</strong> 1.185 msnm</li>
+                    </ul>
+                    <p>El acceso se realiza en camioneta hasta un punto determinado y, desde allí, continúa a pie por un trayecto complejo debido a la densa vegetación y la fuerte pendiente del terreno.</p>
+                    <p>Participaron 5 brigadistas del ICE Lanín, 5 del Sistema Provincial de Manejo del Fuego de Neuquén y un helicóptero del Servicio Nacional de Manejo del Fuego, que efectuó entre 10 y 12 descargas altamente efectivas, permitiendo mantener la intensidad del fuego en niveles bajos.</p>
+                    <p><em>Fotos: Brigadista Javier Curruhuinca.</em></p>
+                    
+                    <div class="image-gallery"></div>
+                    <div class="single-image-view">
+                      <img class="single-image" src="" alt="Imagen ampliada">
+                      <button class="back-to-grid-btn">Volver a la galería</button>
+                    </div>
+        
+                    <h4>R20 Villa Hermosa</h4>
+                    <ul>
+                        <li><strong>Estado:</strong> Extinguido</li>
+                        <li><strong>Origen:</strong> Rayo</li>
+                        <li><strong>Superficie estimada:</strong> 25 m² (5 x 5)</li>
+                        <li><strong>Altitud:</strong> 1.130 msnm</li>
+                    </ul>
+                    <p>El personal observó columnas de humo y se dispusieron dos cuadrillas del ICE Lanín Sur y otra de Centro. En el lugar se constató la quema de bosque de lenga y caña colihue.</p>
+                    <p>El helicóptero 407 del Servicio Nacional realizó 16 descargas de agua, contribuyendo sigicativamente a reducir la intensidad del fuego.</p>
+                    <p>Los brigadistas contaron, además, con la colaboración de trabajadores de una estancia, quienes aportaron un tractor y un batán de 3.000 litros. Las tareas se complementaron con el uso de herramientas manuales.</p>
+        
+                    <h4>R20 Ruca Ñire</h4>
+                    <ul>
+                        <li><strong>Estado:</strong> Detenido</li>
+                        <li><strong>Origen:</strong> Rayo</li>
+                        <li><strong>Superficie estimada:</strong> En evaluación</li>
+                        <li><strong>Altitud:</strong> 1.100 msnm</li>
+                    </ul>
+                    <p>Pescadores del lago Lácar, en la zona de la isla Santa Teresita, divisaron una columna de humo y dieron aviso al guardaparque de Pucará.</p>
+                    <p>De inmediato se solicitó al helicóptero un sobrevuelo para obtener información precisa y realizar descargas de agua sobre el punto caliente.</p>
+                    <p>En horas de la tarde se incorporó un avión Fire Boss del Servicio Nacional que efectuó 9 descargas y el Fire Boss 15, logrando detener el avance del incendio.</p>
+                    <p>Asimismo, una cuadrilla de 5 brigadistas del ICE Zona Centro trabaja en un foco R20 en Collón Curá, bajo jurisdicción provincial.</p>
+                    
+                    <hr>
 
-    <div id="map-container">
-        <iframe src="https://www.google.com/maps/d/embed?mid=1O9I3XXMJW_iPBP6LUd85RoYDOM5swTw&ehbc=2E312F&noprof=1" loading="lazy"></iframe>
-    </div>
-
-
-    <!-- The Image Modal (26/11) -->
-    <div id="myModal" class="modal">
-      <span class="close">&times;</span>
-      <div class="image-gallery"></div>
-      <div class="single-image-view">
-        <img class="single-image" src="" alt="Imagen ampliada">
-        <button class="back-to-grid-btn">Volver a la galería</button>
-      </div>
-      <button class="back-to-map-btn">Volver al Mapa</button>
-    </div>
-
-    <!-- The Video Modal (27/11) -->
-    <div id="videoModal" class="modal">
-      <span class="close">&times;</span>
-      <div class="video-container">
-        <div class="video-wrapper">
-            <video controls>
-                <source src="static/videos/Fire_nqn_27_11_09_30_am.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-      </div>
-      <button class="back-to-map-btn">Volver al Mapa</button>
-    </div>
-
-    <!-- The Image Modal (28/11) -->
-    <div id="modal-28-11" class="modal">
-      <span class="close">&times;</span>
-      <div class="image-gallery"></div>
-      <div class="single-image-view">
-        <img class="single-image" src="" alt="Imagen ampliada">
-        <button class="back-to-grid-btn">Volver a la galería</button>
-      </div>
-      <button class="back-to-map-btn">Volver al Mapa</button>
-    </div>
-
-    <!-- The Video Modal (28/11) -->
-    <div id="videoModal-28-11" class="modal">
-      <span class="close">&times;</span>
-      <div class.video-container">
-        <div class="video-wrapper">
-          <p>ver video viento</p>
-          <video controls>
-            <source src="static/videos/Grabación de pantalla 2025-11-28 093514.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="video-wrapper">
-          <p>ver video viento</p>
-          <video controls>
-            <source src="static/videos/Grabación de pantalla 2025-11-28 093558.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
-      <button class="back-to-map-btn">Volver al Mapa</button>
-    </div>
-
-    <!-- The Image Modal (Reporte 12:00 hs) -->
-    <div id="modal-reporte-1200" class="modal">
-      <span class="close">&times;</span>
-      <div class="image-gallery"></div>
-      <div class="single-image-view">
-        <img class="single-image" src="" alt="Imagen ampliada">
-        <button class="back-to-grid-btn">Volver a la galería</button>
-      </div>
-      <button class="back-to-map-btn">Volver al Mapa</button>
-    </div>
-
-    <!-- The Image and Map Modal (07/12) -->
-    <div id="modal-07-12" class="modal">
-      <span class="close">&times;</span>
-      <div class="modal-titles">
-        <h2>Incendio Forestal Frente Aeropuerto Chapelco - SMA</h2>
-        <h4>07/12/2025</h4>
-        <h4>Vegetación afectada: Arbustos, pastizales y coirones.</h4>
-      </div>
-      <div class="image-gallery"></div>
-      <div class="single-image-view">
-        <img class="single-image" src="" alt="Imagen ampliada">
-        <button class="back-to-grid-btn">Volver a la galería</button>
-      </div>
-      <div id="map-container-07-12" class="map-container-modal">
-        <iframe src="https://www.google.com/maps/d/embed?mid=1iG_oOaW4zHAyE1IIhZgoOX505jPvh4U&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
-      </div>
-      <button class="back-to-map-btn">Cerrar</button>
-    </div>
-
-    <!-- The Image and Map Modal (08/12) -->
-    <div id="modal-08-12" class="modal">
-      <span class="close">&times;</span>
-      <div class="modal-titles">
-        <h2>Columna de Humo Departameno Huiliches</h2>
-        <h4>08/12/2025</h4>
-        <h4>Jurisdiccion Provincia.</h4>
-        <h4>Tormenta Eléctrica.</h4>
-      </div>
-      <div class="image-gallery"></div>
-      <div class="single-image-view">
-        <img class="single-image" src="" alt="Imagen ampliada">
-        <button class="back-to-grid-btn">Volver a la galería</button>
-      </div>
-      <div id="map-container-08-12" class="map-container-modal">
-        <iframe src="https://www.google.com/maps/d/embed?mid=1ctKbLOYLyjo0lCkaeTEWuFCgLjuzZBQ&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
-      </div>
-      <button class="back-to-map-btn">Cerrar</button>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="static/js/main.js"></script>
-</body>
-</html>
+                    <h4>Incendio Collon Cura</h4>
+                    <div class="media-container-side-by-side">
+                        <img src="static/Fire_09_12_2025/WhatsApp Image 2025-12-09 at 4.31.53 PM.jpeg" alt="Incendio Collon Cura" class="modal-image">
+                        <video controls class="modal-video">
+                            <source src="static/Fire_09_12_2025/WhatsApp Video 2025-12-09 at 4.59.22 PM.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="map-container-modal">
+                        <iframe src="https://www.google.com/maps/d/embed?mid=19nNKC_V9wUaf9g5VGhNxtVvp0a0OZ0M&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
+                    </div>
+                </div>
+                <button class="back-to-map-btn">Cerrar</button>
+            </div>
+        
+        
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+            <script src="static/js/main.js"></script>
+        </body>
+        </html>

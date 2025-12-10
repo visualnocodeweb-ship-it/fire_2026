@@ -237,3 +237,36 @@ body, html {
             height: 100%;
             border: 0;
         }
+
+        .modal-content-text {
+            max-height: 80vh;
+            overflow-y: auto;
+            width: 90%;
+            max-width: 900px;
+            padding: 20px;
+            text-align: left;
+        }
+
+        .media-container-side-by-side {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 15px;
+            margin: 20px auto;
+        }
+
+        .media-container-side-by-side .modal-image,
+        .media-container-side-by-side .modal-video {
+            flex: 1 1 300px; /* Allow items to grow and shrink, with a base size */
+            max-width: 48%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .modal-content-text .map-container-modal {
+            max-width: 500px;
+            margin: 20px auto;
+        }
+    </style>

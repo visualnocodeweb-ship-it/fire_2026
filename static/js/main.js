@@ -63,10 +63,12 @@ function setupImageModal(modalId, buttonId, imageArray, folder) {
     if (backToGridBtn) backToGridBtn.onclick = showGridView;
 }
 
-// --- Generic Video Modal Logic ---
-function setupVideoModal(modalId, buttonId) {
+// --- Generic Video/Static Modal Logic ---
+function setupStaticModal(modalId, buttonId) {
     const modal = document.getElementById(modalId);
+    if (!modal) return;
     const showBtn = document.getElementById(buttonId);
+    if (!showBtn) return;
     const closeSpan = modal.querySelector('.close');
     const backToMapBtn = modal.querySelector('.back-to-map-btn');
     const videos = modal.querySelectorAll('video');
@@ -84,7 +86,7 @@ function setupVideoModal(modalId, buttonId) {
     }
 
     showBtn.onclick = openModal;
-    closeSpan.onclick = closeModal;
+    if(closeSpan) closeSpan.onclick = closeModal;
     if (backToMapBtn) backToMapBtn.onclick = closeModal;
 }
 
@@ -109,8 +111,8 @@ const reporte_1200_image = ['Reporte 28_11_25 12_00 hs.png'];
 setupImageModal('modal-reporte-1200', 'show-reporte-1200', reporte_1200_image, 'static/Imagenes_26_11_2025');
 
 
-setupVideoModal('videoModal', 'show-video');
-setupVideoModal('videoModal-28-11', 'show-videos-28-11');
+setupStaticModal('videoModal', 'show-video');
+setupStaticModal('videoModal-28-11', 'show-videos-28-11');
 
 const images_07_12 = [
     'Captura de pantalla 2025-12-08 123543.png', 'Captura de pantalla 2025-12-08 123551.png',
@@ -123,6 +125,9 @@ setupImageModal('modal-07-12', 'show-map-and-images-07-12', images_07_12, 'stati
 
 const images_08_12 = ['1.png', '2.png'];
 setupImageModal('modal-08-12', 'show-map-and-images-08-12', images_08_12, 'static/Fire_08_12_2025');
+
+const images_09_12 = ['Captura de pantalla 2025-12-10 125717.png', 'Captura de pantalla 2025-12-10 125725.png'];
+setupImageModal('modal-09-12', 'show-images-09-12', images_09_12, 'static/Fire_09_12_2025');
 
 
 // --- General Click Handling ---
