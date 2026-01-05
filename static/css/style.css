@@ -269,4 +269,9 @@ body, html {
             max-width: 500px;
             margin: 20px auto;
         }
+
+        .no-scroll {
+            max-height: none;
+            overflow-y: visible;
+        }
     </style>

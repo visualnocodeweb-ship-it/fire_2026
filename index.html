@@ -16,23 +16,24 @@
     </div>
 
     <div class="container-fluid d-flex justify-content-start flex-wrap p-2 gap-2 bg-dark">
-        <button id="show-images" class="btn btn-secondary">Incendios 26/11/2025</button>
-        <button id="show-video" class="btn btn-secondary">Incendios 27/11/2025</button>
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Incendios 28/11/2025
+                Historial de Incendios
             </button>
             <ul class="dropdown-menu">
+                <li><button id="show-images" class="dropdown-item" type="button">Incendios 26/11/2025</button></li>
+                <li><button id="show-video" class="dropdown-item" type="button">Incendios 27/11/2025</button></li>
                 <li><button id="show-images-28-11" class="dropdown-item" type="button">Imagenes 28/11/2025</button></li>
                 <li><button id="show-videos-28-11" class="dropdown-item" type="button">Viento 28/11 (video)</button></li>
                 <li><button id="show-reporte-1200" class="dropdown-item" type="button">Reporte 12:00 hs</button></li>
+                <li><button id="show-map-and-images-07-12" class="dropdown-item" type="button">Incendios 07/12/2025</button></li>
+                <li><button id="show-map-and-images-08-12" class="dropdown-item" type="button">Incendios 08/12/2025</button></li>
+                <li><button id="show-images-09-12" class="dropdown-item" type="button">Incendios 09/12/2025</button></li>
+                <li><button id="show-videos-28-12" class="dropdown-item" type="button">Incendio 28/12/2025</button></li>
             </ul>
         </div>
-        <button id="show-map-and-images-07-12" class="btn btn-secondary">Incendios 07/12/2025</button>
-                <button id="show-map-and-images-08-12" class="btn btn-secondary">Incendios 08/12/2025</button>
-                <button id="show-images-09-12" class="btn btn-secondary">Incendios 09/12/2025</button>
-                <button id="show-videos-28-12" class="btn btn-danger">Incendio 28/12/2025</button>
-            </div>
+        <button id="show-images-04-01" class="btn btn-danger">Incendios 04/01/2026</button>
+    </div>
         
             <div id="map-container">
                 <iframe src="https://www.google.com/maps/d/embed?mid=1O9I3XXMJW_iPBP6LUd85RoYDOM5swTw&ehbc=2E312F" width="640" height="480"></iframe>
@@ -251,6 +252,50 @@
                 <div class="video-wrapper">
                     <video controls>
                         <source src="static/Fire_28_12_2025/WhatsApp Video 2025-12-28 at 9.36.21 PM.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+              </div>
+              <button class="back-to-map-btn">Cerrar</button>
+            </div>
+        
+        
+            <!-- The Image and Map Modal (04/01) -->
+            <div id="modal-04-01" class="modal">
+              <span class="close">&times;</span>
+              <div class="modal-titles">
+                <h2>Incendio Forestal Lago Hermoso</h2>
+                <h4>04/01/2026</h4>
+              </div>
+              <div class="modal-content-text text-white no-scroll">
+                <p>El Parque Nacional Lanín informó que este domingo a la tarde se desató un incendio forestal en Lago Hermoso. El foco ígneo, que presenta riesgo de propagación y afecta una zona de interfase, logró ser detenido. Gendarmería Nacional implementó cortes intermitentes sobre la Ruta 40 para facilitar el operativo de combate.</p>
+                
+                <h4>Otros Focos Activos</h4>
+                <p><strong>Zona de Media Luna:</strong> A unos 30 kilómetros de Las Coloradas, en un sector montañoso del norte provincial, un incendio afecta vegetación nativa. Brigadistas provinciales enfrentan terrenos escarpados y condiciones climáticas adversas para combatirlo.</p>
+                <p><strong>Zona de Ñorquinco:</strong> El incendio denominado “Veranada de Carlos Cayunao” permanece activo y ha consumido una superficie aún no cuantificada. Brigadistas del Servicio Provincial de Lucha contra Incendios Forestales y equipos locales colaboran en la extinción, con apoyo aéreo. El terreno montañoso complica las operaciones, obligando a emplear estrategias de contención indirecta como quemas controladas y la creación de líneas de defensa.</p>
+              </div>
+              <div class="media-container-side-by-side">
+                <img src="static/FIre_04_01_2026/Captura de pantalla 2026-01-04 223010.png" alt="Incendio Lago Hermoso" class="modal-image">
+                <img src="static/FIre_04_01_2026/Captura de pantalla 2026-01-04 223016.png" alt="Incendio Lago Hermoso" class="modal-image">
+                <img src="static/FIre_04_01_2026/Captura de pantalla 2026-01-04 223029.png" alt="Incendio Lago Hermoso" class="modal-image">
+                <img src="static/FIre_04_01_2026/Captura de pantalla 2026-01-04 223034.png" alt="Incendio Lago Hermoso" class="modal-image">
+              </div>
+              <div class="media-container-side-by-side">
+                <div class="video-wrapper">
+                    <video controls>
+                        <source src="static/FIre_04_01_2026/Grabación de pantalla 2026-01-04 163017.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="video-wrapper">
+                    <video controls>
+                        <source src="static/FIre_04_01_2026/Grabación de pantalla 2026-01-04 163433.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="video-wrapper">
+                    <video controls>
+                        <source src="static/FIre_04_01_2026/Grabación de pantalla 2026-01-04 164116.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>

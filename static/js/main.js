@@ -129,6 +129,7 @@ setupImageModal('modal-08-12', 'show-map-and-images-08-12', images_08_12, 'stati
 const images_09_12 = ['Captura de pantalla 2025-12-10 125717.png', 'Captura de pantalla 2025-12-10 125725.png'];
 setupImageModal('modal-09-12', 'show-images-09-12', images_09_12, 'static/Fire_09_12_2025');
 setupStaticModal('modal-28-12', 'show-videos-28-12');
+setupStaticModal('modal-04-01', 'show-images-04-01');
 
 
 // --- General Click Handling ---
