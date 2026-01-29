@@ -2,9 +2,14 @@
 
 import { PrismaClient } from '@prisma/client'
 import { revalidatePath } from 'next/cache'
-import { writeFile } from 'fs/promises'
-import path from 'path'
 import { cookies } from 'next/headers'
+import { v2 as cloudinary } from 'cloudinary'
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+})
 
 const prisma = new PrismaClient()
 
@@ -42,15 +47,25 @@ export async function createIncident(formData: FormData) {
     if (file.size > 0) {
       const bytes = await file.arrayBuffer()
       const buffer = Buffer.from(bytes)
-      
-      // Nombre único para evitar colisiones
-      const fileName = `${Date.now()}-${file.name.replace(/\s/g, '-')}`
-      const uploadDir = path.join(process.cwd(), 'public', 'uploads')
-      const filePath = path.join(uploadDir, fileName)
-      
-      // Guardar archivo en disco
-      await writeFile(filePath, buffer)
-      uploadedPaths.push(`/uploads/${fileName}`)
+
+      // Determinar tipo de recurso
+      const resourceType = file.type.startsWith('video/') ? 'video' : 'image'
+
+      // Subir a Cloudinary
+      const result = await new Promise<any>((resolve, reject) => {
+        cloudinary.uploader.upload_stream(
+          {
+            resource_type: resourceType,
+            folder: 'fire_incidents',
+          },
+          (error, result) => {
+            if (error) reject(error)
+            else resolve(result)
+          }
+        ).end(buffer)
+      })
+
+      uploadedPaths.push(result.secure_url)
     }
   }
 
@@ -137,11 +152,25 @@ export async function updateIncident(id: number, formData: FormData) {
         if (file.size > 0) {
             const bytes = await file.arrayBuffer()
             const buffer = Buffer.from(bytes)
-            const fileName = `${Date.now()}-${file.name.replace(/\s/g, '-')}`
-            const uploadDir = path.join(process.cwd(), 'public', 'uploads')
-            const filePath = path.join(uploadDir, fileName)
-            await writeFile(filePath, buffer)
-            uploadedPaths.push(`/uploads/${fileName}`)
+
+            // Determinar tipo de recurso
+            const resourceType = file.type.startsWith('video/') ? 'video' : 'image'
+
+            // Subir a Cloudinary
+            const result = await new Promise<any>((resolve, reject) => {
+                cloudinary.uploader.upload_stream(
+                    {
+                        resource_type: resourceType,
+                        folder: 'fire_incidents',
+                    },
+                    (error, result) => {
+                        if (error) reject(error)
+                        else resolve(result)
+                    }
+                ).end(buffer)
+            })
+
+            uploadedPaths.push(result.secure_url)
         }
     }
 
