@@ -6,6 +6,8 @@ import ImageGallery from '@/components/ImageGallery';
 
 const prisma = new PrismaClient();
 
+export const dynamic = 'force-dynamic';
+
 export default async function IncidentDetailPage({ params }: { params: { id: string } }) {
   const { id } = await params;
   

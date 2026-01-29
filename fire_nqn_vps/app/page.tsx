@@ -5,6 +5,8 @@ import GlassCard from '@/components/GlassCard';
 import DeleteButton from '@/components/DeleteButton';
 import EditButton from '@/components/EditButton';
 
+export const dynamic = 'force-dynamic';
+
 export default async function Home() {
   const incidents = await getIncidents();
   const isAdmin = await checkAuth();

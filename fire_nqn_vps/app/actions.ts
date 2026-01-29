@@ -6,9 +6,7 @@ import { writeFile } from 'fs/promises'
 import path from 'path'
 import { cookies } from 'next/headers'
 
-const prisma = new PrismaClient({
-  datasourceUrl: "file:./dev.db"
-})
+const prisma = new PrismaClient()
 
 export async function createIncident(formData: FormData) {
   // Verificar seguridad

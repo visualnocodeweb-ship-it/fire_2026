@@ -3,6 +3,8 @@ import { getIncidentById } from '@/app/actions';
 import Link from 'next/link';
 import BackButton from '@/components/BackButton'; // Asumiendo que tienes este componente
 
+export const dynamic = 'force-dynamic';
+
 export default async function EditIncidentPage({ params }: { params: { id: string } }) {
   const resolvedParams = await params;
   const id = parseInt(resolvedParams.id, 10);
