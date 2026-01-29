@@ -5,6 +5,8 @@ import GlassCard from '@/components/GlassCard';
 import DeleteButton from '@/components/DeleteButton';
 import EditButton from '@/components/EditButton';
 
+import ImageGalleryModal from '@/components/ImageGalleryModal';
+
 export const dynamic = 'force-dynamic';
 
 export default async function Home() {
@@ -19,6 +21,7 @@ export default async function Home() {
             <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-red-600">
               Fire Plataforma NQN
             </h1>
+            <p className="text-slate-400 mt-2">Incendios relevados por la Direccion Tecnologica de Fauna para analisis de severidad y evaluacion de daños</p>
             <p className="text-slate-400 mt-2">Monitoreo de Incendios Forestales 2025-2026</p>
           </div>
           
@@ -80,6 +83,16 @@ export default async function Home() {
             <p className="text-slate-500 mt-2">Sé el primero en reportar uno.</p>
           </div>
         )}
+
+        <div className="mt-20 text-center">
+          <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-red-600 mb-4">
+            Incendios Forestales Patagonia
+          </h2>
+          <p className="text-slate-400 text-lg mb-8">
+            Monitoreo: Incendio Forestal en Chubut
+          </p>
+          <ImageGalleryModal />
+        </div>
       </div>
     </main>
   );
