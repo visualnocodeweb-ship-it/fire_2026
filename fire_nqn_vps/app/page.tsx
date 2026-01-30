@@ -21,7 +21,7 @@ export default async function Home() {
             <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-red-600">
               Fire Plataforma NQN
             </h1>
-            <p className="text-slate-400 mt-2">Incendios relevados por la Direccion Tecnologica de Fauna para analisis de severidad y evaluacion de daños</p>
+            <p className="text-slate-400 mt-2">Incendios relevados por la Dirección Tecnológica de Fauna para análisis de severidad y evaluación de daños</p>
             <p className="text-slate-400 mt-2">Monitoreo de Incendios Forestales 2025-2026</p>
           </div>
           

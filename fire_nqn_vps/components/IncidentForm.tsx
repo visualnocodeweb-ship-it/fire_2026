@@ -110,7 +110,7 @@ export default function IncidentForm({ incident }: IncidentFormProps) {
 
       <div className="space-y-2">
         <label className="block text-sm font-medium text-slate-300 flex items-center gap-2">
-            <span>🗺️</span> Código o Link del Mapa de Google
+            <span>🗺️</span> Código o Enlace del Mapa de Google
         </label>
         <input 
           name="googleMapUrl" 
@@ -135,7 +135,7 @@ export default function IncidentForm({ incident }: IncidentFormProps) {
       </div>
 
       <div className="space-y-2">
-        <label className="block text-sm font-medium text-slate-300">Ubicación en Mapa (Click para seleccionar)</label>
+        <label className="block text-sm font-medium text-slate-300">Ubicación en Mapa (Haz clic para seleccionar)</label>
         <div className="rounded-xl overflow-hidden border border-slate-700">
           <LocationPicker 
             onLocationSelect={(lat, lng) => {

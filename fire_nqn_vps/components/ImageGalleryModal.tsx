@@ -88,7 +88,7 @@ export default function ImageGalleryModal() {
 
           <div className="relative max-w-full max-h-full" onClick={(e) => e.stopPropagation()}>
 
-            <img src={selectedImage} alt="Zoomed Image" className="max-w-full max-h-full object-contain" />
+            <img src={selectedImage} alt="Imagen ampliada" className="max-w-full max-h-full object-contain" />
 
                         <button
 
